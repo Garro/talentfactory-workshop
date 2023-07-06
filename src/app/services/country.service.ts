@@ -17,11 +17,14 @@ export class CountryService {
   }
 
   public getCountryByCCA3(cca3: string) {
-    return this.coutries.find((value) => value.cca3 == cca3);
+    if (this.coutries) {
+      return this.coutries.find((value) => value.cca3 == cca3);
+    }
+    // How to return countries if this.countries is undefied?
+    return;
   }
 
   public async fetchCountries() {
     this.coutries = await this.httpService.request(this.url);
-    console.log(this.coutries);
   }
 }

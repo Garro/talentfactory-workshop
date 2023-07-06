@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interfaces/country.i';
@@ -8,9 +8,14 @@ import { Country } from '../../interfaces/country.i';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  constructor(private countryService: CountryService) {
-    this.countryService.fetchCountries();
+export class HomePage implements OnInit {
+  public displayList: Country[] = [];
+
+  constructor(private countryService: CountryService) {}
+
+  async ngOnInit(): Promise<void> {
+    await this.countryService.fetchCountries();
+    this.getCountryList();
   }
 
   refresh(ev: any) {
@@ -19,7 +24,11 @@ export class HomePage {
     }, 3000);
   }
 
-  getCountryList(): Country[] {
-    return this.countryService.getCountries();
+  getCountryList(): void {
+    this.displayList = this.countryService.getCountries();
+  }
+
+  searchFilter(event: any) {
+    // Connect this fuction with component and filter coutries.
   }
 }

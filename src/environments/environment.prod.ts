@@ -1,3 +1,11 @@
 export const environment = {
-  production: true
+  production: true,
+
+  domain: {
+    protocol: 'https',
+    host: 'restcountries.com/v3.1',
+    routes: {
+      all: 'all',
+    },
+  },
 };
