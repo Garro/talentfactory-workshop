@@ -20,6 +20,6 @@
   </ion-header>
   
   <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+    <app-country-item *ngFor="let country of getCountryList()" [country]="country"></app-country-item>
   </ion-list>
 </ion-content>

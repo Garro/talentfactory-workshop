@@ -2,21 +2,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { MessageComponentModule } from '../message/message.module';
+import { CountryItemComponent } from './country-item.component';
 
-import { HomePage } from './home.page';
-
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('CountryItemComponent', () => {
+  let component: CountryItemComponent;
+  let fixture: ComponentFixture<CountryItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomePage],
-      imports: [IonicModule.forRoot(), MessageComponentModule, RouterModule.forRoot([])]
+      declarations: [CountryItemComponent],
+      imports: [IonicModule.forRoot(), RouterModule.forRoot([])],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomePage);
+    fixture = TestBed.createComponent(CountryItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
