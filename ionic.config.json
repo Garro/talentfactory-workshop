@@ -1,0 +1,7 @@
+{
+  "name": "taletfactory-workshop",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
